@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Clients - IVA Shop</h2>
+
+    <!-- Search Form -->
+    <form method="GET" action="{{ url_for('view_clients') }}" class="search-form d-flex justify-content-center">
+        <input type="text" name="search" class="form-control w-50" placeholder="Search Clients..." value="{{ request.args.get('search', '') }}">
+        <button type="submit" class="btn btn-primary ml-2">Search</button>
+    </form>
+
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if clients %}
+                    {% for client in clients %}
+                    <tr>
+                        <td class="text-center align-middle">{{ loop.index }}</td>
+                        <td class="align-middle">{{ client["name"] }}</td>
+                        <td class="align-middle">{{ client["contact"] }}</td>
+                        <td class="align-middle">{{ client["address"] }}</td>
+                        <td class="text-center align-middle">
+                            <a href="{{ url_for('client_details', client_id=client['id']) }}" class="btn btn-info btn-sm mx-1">View</a>
+                            <a href="{{ url_for('edit_client', client_id=client['id']) }}" class="btn btn-warning btn-sm mx-1">Edit</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center">No clients found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ url_for('add_client') }}" class="btn btn-success mt-3">Add New Client</a>
+</div>
+{% endblock %}

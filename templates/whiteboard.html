@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <script src="/static/js/fabric-whiteboard.js" defer></script>
+</head>
+<body>
+    <h1>Client {{ client.name }}'s Whiteboard</h1>
+
+    <!-- Tools Section -->
+    <div class="tools">
+        <!-- Pencil Tool -->
+        <img src="/static/image/pencil.png" id="pencil-btn" class="tool-icon" title="Pencil" alt="Pencil">
+
+        <!-- Eraser Tool -->
+        <img src="/static/image/eraser.png" id="eraser-btn" class="tool-icon" title="Eraser" alt="Eraser">
+
+        <!-- Color Options -->
+        <div id="color-palette" class="color-palette">
+            <img src="/static/image/black.png" class="color-icon" data-color="black" title="Black" alt="Black">
+            <img src="/static/image/red.png" class="color-icon" data-color="red" title="Red" alt="Red">
+            <img src="/static/image/blue.png" class="color-icon" data-color="blue" title="Blue" alt="Blue">
+            <img src="/static/image/green.png" class="color-icon" data-color="green" title="Green" alt="Green">
+        </div>
+    </div>
+
+    <!-- Whiteboard Canvas -->
+    <canvas id="whiteboard" width="800" height="600" data-client-id="{{ client_id }}"></canvas>
+
+    <!-- Save Design Button -->
+    <button id="save-design">Save Design</button>
+</body>
+</html>

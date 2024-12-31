@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "name": "Hetavi",
+        "contact": "07567393355",
+        "address": "dcwee rfcwcc",
+        "measurements": {
+            "neck": "3244",
+            "shoulder": "",
+            "chest": "",
+            "waist": "",
+            "hip": "",
+            "sleeve_length": "",
+            "inseam": "",
+            "thigh": "",
+            "calf": "",
+            "pant_length": "",
+            "height": "",
+            "torso_length": ""
+        },
+        "delivery_date": "2024-11-21",
+        "sketch_url": null
+    },
+    {
+        "id": 2,
+        "name": "Hetavi",
+        "contact": "07567393355",
+        "address": "dcwee rfcwcc",
+        "measurements": {
+            "neck": "3244",
+            "shoulder": "",
+            "chest": "",
+            "waist": "",
+            "hip": "",
+            "sleeve_length": "",
+            "inseam": "",
+            "thigh": "",
+            "calf": "",
+            "pant_length": "",
+            "height": "",
+            "torso_length": ""
+        },
+        "delivery_date": "2024-11-21",
+        "sketch_url": null
+    },
+    {
+        "id": 3,
+        "name": "Hetavi",
+        "contact": "7567393355",
+        "address": "67 kjnkj",
+        "measurements": {
+            "neck": "",
+            "shoulder": "",
+            "chest": "",
+            "waist": "",
+            "hip": "",
+            "sleeve_length": "",
+            "inseam": "",
+            "thigh": "",
+            "calf": "",
+            "pant_length": "",
+            "height": "",
+            "torso_length": ""
+        },
+        "delivery_date": "2024-11-22",
+        "sketch_url": "designs/client_3_design.png"
+    }
+]

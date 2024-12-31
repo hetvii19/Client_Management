@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Client ID: {{ client_id }}</h1>
+<h2>{{ client.name }}</h2>
+<p><strong>Contact:</strong> {{ client.contact }}</p>
+<p><strong>Address:</strong> {{ client.address }}</p>
+
+<h4>Measurements</h4>
+<h5>Upper Body</h5>
+<ul>
+    <li>Neck: {{ client.neck }} cm</li>
+    <li>Shoulder: {{ client.shoulder }} cm</li>
+    <li>Chest/Bust: {{ client.chest }} cm</li>
+    <li>Waist: {{ client.waist }} cm</li>
+    <li>Hip: {{ client.hip }} cm</li>
+    <li>Sleeve Length: {{ client.sleeve_length }} cm</li>
+</ul>
+
+<h5>Lower Body</h5>
+<ul>
+    <li>Inseam: {{ client.inseam }} cm</li>
+    <li>Thigh Circumference: {{ client.thigh }} cm</li>
+    <li>Calf Circumference: {{ client.calf }} cm</li>
+    <li>Pant Length: {{ client.pant_length }} cm</li>
+</ul>
+
+<h5>Full Body</h5>
+<ul>
+    <li>Height: {{ client.height }} cm</li>
+    <li>Torso Length: {{ client.torso_length }} cm</li>
+</ul>
+
+<p><strong>Delivery Date:</strong> {{ client.delivery_date }}</p>
+
+<h4>Design Sketch</h4>
+{% if client.sketch_url %}
+    <img src="/static/{{ client.sketch_url }}" alt="Sketch" style="width: 400px;">
+{% else %}
+    <p>No sketch available.</p>
+{% endif %}
+
+<!-- Replace `url_for('view_clients')` with the direct path -->
+<a href="/view-clients" class="btn btn-secondary mt-3">Back</a>
+{% endblock %}

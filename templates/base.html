@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "IVA - Your Fashion Hub" }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Shop Name Header -->
+    <header class="shop-header">
+        <div class="text-center">
+            <h1 class="shop-name">IVA - Your Personalized Fashion Hub</h1>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 IVA | Designed for Fashion Enthusiasts</p>
+    </footer>
+</body>
+</html>

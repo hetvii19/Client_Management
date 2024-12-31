@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Client Details</h2>
+<form method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="{{ client.name }}" required>
+
+    <label for="contact">Contact:</label>
+    <input type="text" id="contact" name="contact" value="{{ client.contact }}" required>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required>{{ client.address }}</textarea>
+
+    <label for="delivery_date">Delivery Date:</label>
+    <input type="date" id="delivery_date" name="delivery_date" value="{{ client.delivery_date }}">
+
+    <h3>Measurements</h3>
+    <label for="neck">Neck:</label>
+    <input type="text" id="neck" name="neck" value="{{ client.measurements.get('neck', '') }}">
+
+    <label for="shoulder">Shoulder:</label>
+    <input type="text" id="shoulder" name="shoulder" value="{{ client.measurements.get('shoulder', '') }}">
+
+    <label for="chest">Chest/Bust:</label>
+    <input type="text" id="chest" name="chest" value="{{ client.measurements.get('chest', '') }}">
+
+    <label for="waist">Waist:</label>
+    <input type="text" id="waist" name="waist" value="{{ client.measurements.get('waist', '') }}">
+
+    <label for="hip">Hip:</label>
+    <input type="text" id="hip" name="hip" value="{{ client.measurements.get('hip', '') }}">
+
+    <label for="sleeve_length">Sleeve Length:</label>
+    <input type="text" id="sleeve_length" name="sleeve_length" value="{{ client.measurements.get('sleeve_length', '') }}">
+
+    <label for="inseam">Inseam:</label>
+    <input type="text" id="inseam" name="inseam" value="{{ client.measurements.get('inseam', '') }}">
+
+    <label for="thigh">Thigh Circumference:</label>
+    <input type="text" id="thigh" name="thigh" value="{{ client.measurements.get('thigh', '') }}">
+
+    <label for="calf">Calf Circumference:</label>
+    <input type="text" id="calf" name="calf" value="{{ client.measurements.get('calf', '') }}">
+
+    <label for="pant_length">Pant Length:</label>
+    <input type="text" id="pant_length" name="pant_length" value="{{ client.measurements.get('pant_length', '') }}">
+
+    <label for="height">Height:</label>
+    <input type="text" id="height" name="height" value="{{ client.measurements.get('height', '') }}">
+
+    <label for="torso_length">Torso Length:</label>
+    <input type="text" id="torso_length" name="torso_length" value="{{ client.measurements.get('torso_length', '') }}">
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+<a href="/view-clients" class="btn btn-secondary mt-3">Cancel</a>
+{% endblock %}

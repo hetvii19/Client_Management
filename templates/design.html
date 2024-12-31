@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Design for Client #{{ client_id }}</h2>
+    <canvas id="whiteboard" class="border" width="800" height="500"></canvas>
+    <div class="mt-3">
+        <button class="btn btn-danger" id="clearButton">Clear</button>
+        <button class="btn btn-primary" id="saveButton">Save</button>
+    </div>
+    <form id="designForm" method="POST" enctype="multipart/form-data" style="display: none;">
+        <input type="file" id="designInput" name="design">
+        <button type="submit" id="submitFormButton"></button>
+    </form>
+</div>
+
+<script>
+    const canvas = document.getElementById('whiteboard');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', () => { isDrawing = true; });
+    canvas.addEventListener('mouseup', () => { isDrawing = false; ctx.beginPath(); });
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(event) {
+        if (!isDrawing) return;
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = 'black';
+        ctx.lineTo(event.offsetX, event.offsetY);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(event.offsetX, event.offsetY);
+    }
+
+    document.getElementById('clearButton').addEventListener('click', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    document.getElementById('saveButton').addEventListener('click', () => {
+        const dataURL = canvas.toDataURL('image/png');
+        const designInput = document.getElementById('designInput');
+        const blob = dataURItoBlob(dataURL);
+        const file = new File([blob], 'design.png', { type: 'image/png' });
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        designInput.files = dataTransfer.files;
+
+        // Trigger the form submission
+        document.getElementById('submitFormButton').click();
+    });
+
+
+    function dataURItoBlob(dataURI) {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], { type: mimeString });
+    }
+</script>
+{% endblock %}

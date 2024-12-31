@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add New Client</h2>
+<form method="POST">
+    <p>Debug Info: client_id is {{ client_id }}</p>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="contact" class="form-label">Contact</label>
+        <input type="text" class="form-control" id="contact" name="contact" required>
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" id="address" name="address"></textarea>
+    </div>
+
+    <h4>Measurements:</h4>
+    <h5>Upper Body</h5>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Neck (cm)" name="neck">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Shoulder (cm)" name="shoulder">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Chest/Bust (cm)" name="chest">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Waist (cm)" name="waist">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Hip (cm)" name="hip">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Sleeve Length (cm)" name="sleeve_length">
+        </div>
+    </div>
+
+    <h5 class="mt-3">Lower Body</h5>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Inseam (cm)" name="inseam">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Thigh Circumference (cm)" name="thigh">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Calf Circumference (cm)" name="calf">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Pant Length (cm)" name="pant_length">
+        </div>
+    </div>
+
+    <h5 class="mt-3">Full Body</h5>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Height (cm)" name="height">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Torso Length (cm)" name="torso_length">
+        </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="delivery_date" class="form-label">Delivery Date</label>
+        <input type="date" class="form-control" id="delivery_date" name="delivery_date" required>
+    </div>
+
+    <br>
+    <label for="design_picture">Upload Design Image :</label>
+    <input type="file" id="design_picture" name="design_picture" accept="image/*">
+
+    <br><br>
+    <button type="submit" class="btn-primary custom-btn">Add Client</button>
+</form>
+{% endblock %}
